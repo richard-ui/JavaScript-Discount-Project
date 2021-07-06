@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en"> <!-- English language -->
+    <head> 
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- uses viewport to be responisve on mobile -->
+
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Books Project</title>
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="assets/css/style.css" type="text/css">
+        <script src="https://kit.fontawesome.com/e9c73d7092.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover-min.css" />
+
+	    <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+<div class="container-fluid">
+        	
+    <h2>Potter Kata</h2>
+
+    <p>Add Book:</p>
+
+        <div class="cart-product">
+            <div class="thumb-desc">
+                <h4>Book 1</h4>
+            </div>
+        </div>
+        <div class="product-options">
+            <div class="item-count">
+                <button action="remove" class="remove btn btn-success">-</button>
+                <input type="text" value="0" class="item-quantity">
+                <button action="add" class="add btn btn-success">+</button>
+            </div>
+
+            <p class="total-price">
+                <span><i class="fas fa-coins"></i></span>
+                £<span id="price" class="price-total">0</span>.00
+            </p>
+        </div>
+
+
+        <div class="cart-product">
+            <div class="thumb-desc">
+                <h4>Book 2</h4>
+            </div>
+        </div>
+        <div class="product-options">
+            <div class="item-count">
+                <button action="remove" class="remove btn btn-success">-</button>
+                <input type="text" value="0" class="item-quantity">
+                <button action="add" class="add btn btn-success">+</button>
+            </div>
+
+            <p class="total-price">
+                <span><i class="fas fa-coins"></i></span>
+                £<span id="price" class="price-total">0</span>.00
+            </p>
+        </div>
+
+        <div class="cart-product">
+            <div class="thumb-desc">
+                <h4>Book 3</h4>
+            </div>
+        </div>
+        <div class="product-options">
+            <div class="item-count">
+                <button action="remove" class="remove btn btn-success">-</button>
+                <input type="text" value="0" class="item-quantity">
+                <button action="add" class="add btn btn-success">+</button>
+            </div>
+
+            <p class="total-price">
+                <span><i class="fas fa-coins"></i></span>
+                £<span id="price" class="price-total">0</span>.00
+                
+            </p>
+        </div>
+
+        <div class="cart-product">
+            <div class="thumb-desc">
+                <h4>Book 4</h4>
+            </div>
+        </div>
+        <div class="product-options">
+            <div class="item-count">
+                <button action="remove" class="remove btn btn-success">-</button>
+                <input type="text" value="0" class="item-quantity">
+                <button action="add" class="add btn btn-success">+</button>
+            </div>
+
+            <p class="total-price">
+                <span><i class="fas fa-coins"></i></span>
+                £<span id="price" class="price-total">0</span>.00
+                
+            </p>
+        </div>
+
+        <div class="cart-product">
+            <div class="thumb-desc">
+                <h4>Book 5</h4>
+            </div>
+        </div>
+        <div class="product-options">
+            <div class="item-count">
+                <button action="remove" class="remove btn btn-success">-</button>
+                <input type="text" value="0" class="item-quantity">
+                <button action="add" class="add btn btn-success">+</button>
+            </div>
+
+            <p class="total-price">
+                <span><i class="fas fa-coins"></i></span>
+                £<span id="price" class="price-total">0</span>.00
+            </p>
+        </div>
+
+        <div style="float: right; margin-right: 15rem;">
+            <h4>Price: </h4>
+            <p style="font-size: 40px;">£<span id="pricevaltot" class="pricevaltot">0</span>.00
+                <span><i class="fas fa-coins"></i></span>
+            </p>
+            <button onclick="getCompletePrice()" class="btn btn-primary">Get Total Discount Price</button>
+        </div>
+
+        <div style="float: right; margin-right: 15rem;">
+            <h4>Discount Price: </h4>
+            <p style="font-size: 40px;">£<span id="discountprice" class="discountprice">0</span>.00</p>
+            <p style="font-size: 40px;" id="discountprice">£</p>
+        </div>
+        
+        <div style="margin-top: 100px;">
+
+            <button onclick="getPriceValue()" class="btn btn-primary">Get Total</button>
+            Price with Discount: <input id="total-value">
+            <label id="totalVal">Discount:</label>
+
+            <button id="total-sum" class="btn btn-success total-sum">Get Sum</button>
+            Amount: <input id="total_amount">
+            <br><br>
+        </div>
+
+        <h4>Book Counter:</h4> <input id="counter">
+
+        
+            <script>
+                $(document).ready(function(){
+                    // button click
+                    $("#total-sum").click(function(){
+                        var sum = 0;
+                        $('.item-quantity').each(function(){
+                            var num = $(this).val().replace(',','');
+                            if(num != 0){
+                                sum += parseFloat(num);
+                            }
+                        });
+                        
+                        $('#total_amount').val(sum);
+                    });
+
+
+                });
+
+                var bookcounter = 0
+                var quantity
+                var pricetotal = 0
+                var price = 0
+                var pricevaltot = 0;
+
+                function getPriceValue(){
+                    var x, i;
+                    x = document.querySelectorAll(".item-quantity");
+                    bookcounter = 0;
+
+                    for (i = 0; i < x.length; i++) {
+                        if(x[i].value > 0){
+                            bookcounter = bookcounter + 1
+                        }
+            
+                    }
+                    if(bookcounter == 0){
+                        alert("You haven't selected any books!")
+                    }
+                    
+                    document.getElementById("counter").value = bookcounter;
+
+                    // if 2 books selected
+                    if(counter == 2){
+                        var numVal1 = pricevaltot
+                        var numVal2 = 5 / 100; // 5%
+                        var totalValue = numVal1 - (numVal1 * numVal2)
+                        document.getElementById("total-value").value = totalValue.toFixed(2);
+                    }
+
+                }
+
+                function getCompletePrice(){
+                    var numVal1 = pricevaltot
+                    var numVal2 = 5 / 100; // 5%
+                    var totalValue = numVal1 - (numVal1 * numVal2)
+                   // document.getElementById("discountprice").value = "hello";
+                    document.getElementById("totalVal").value = totalValue.toFixed(2);
+                }
+            
+
+                const productOptions = document.querySelectorAll(".product-options");
+                
+                
+                productOptions.forEach((node) => {
+                const quantity = node.querySelector(".item-quantity");
+                const add = node.querySelector("button[action='add']");
+                const remove = node.querySelector("button[action='remove']");
+                 
+
+                // 0 by default
+                if (quantity.value == 0) {
+                    node.querySelector(".remove").setAttribute("disabled", "disabled")
+                }
+                
+                add.addEventListener("click", () => {
+                    quantity.value = parseInt(quantity.value, 10) + 1;
+                    price = 8
+                    pricetotal = quantity.value * price; // quantity x price
+                    node.querySelector(".price-total").innerText = pricetotal // place in total textbox
+                    
+                    pricevaltot = pricevaltot + pricetotal
+                    document.getElementById("pricevaltot").innerText = pricevaltot
+
+                    if (quantity.value > 0) {
+                        node.querySelector(".remove").removeAttribute("disabled");
+                        node.querySelector(".remove").classList.remove("disabled")
+
+                        node.querySelector(".add").setAttribute("disabled", "disabled")
+                    }
+                });
+
+                remove.addEventListener("click", () => {
+                    quantity.value = parseInt(quantity.value, 10) - 1;
+
+                    if (quantity.value == 0) {
+                        node.querySelector(".remove").setAttribute("disabled", "disabled")
+
+                        node.querySelector(".add").removeAttribute("disabled");
+                        node.querySelector(".add").classList.remove("disabled");
+                    }
+
+                    pricevaltot = pricevaltot - pricetotal
+                    document.getElementById("pricevaltot").innerText = pricevaltot
+
+                    pricetotal = quantity.value * price; // quantity x price
+                    node.querySelector(".price-total").innerText = pricetotal // place in total textbox
+                    });
+
+                });
+
+
+                //
+                // function priceTotal(quantity, price) {
+                //     pricetotal = quantity * price; // quantity x price
+                //     document.getElementById("price").innerText = pricetotal // place in total textbox
+                // }
+                
+            </script>
+
+     </div>
+
+   
+    <script src="assets/js/javascript.js"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+    
+</body>
+
+</html>
