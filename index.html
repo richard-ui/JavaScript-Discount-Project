@@ -121,89 +121,60 @@
 
         <div style="float: right; margin-right: 15rem;">
             <h4>Price: </h4>
-            <p style="font-size: 40px;">£<span id="pricevaltot" class="pricevaltot">0</span>.00
+            <p style="font-size: 40px;">£<span id="bookPrices" class="bookPrices">0</span>.00
                 <span><i class="fas fa-coins"></i></span>
             </p>
-            <button onclick="getCompletePrice()" class="btn btn-primary">Get Total Discount Price</button>
+            <button onclick="getDiscountPrice()" class="btn btn-info">Get Total</button>
         </div>
 
         <div style="float: right; margin-right: 15rem;">
             <h4>Discount Price: </h4>
-            <p style="font-size: 40px;">£<span id="discountprice" class="discountprice">0</span>.00</p>
-            <p style="font-size: 40px;" id="discountprice">£</p>
-        </div>
-        
-        <div style="margin-top: 100px;">
-
-            <button onclick="getPriceValue()" class="btn btn-primary">Get Total</button>
-            Price with Discount: <input id="total-value">
-            <label id="totalVal">Discount:</label>
-
-            <button id="total-sum" class="btn btn-success total-sum">Get Sum</button>
-            Amount: <input id="total_amount">
-            <br><br>
+            <p style="font-size: 40px;">£<span id="discountprice" class="discountprice">0.00</span>
+                <span style="margin-left: 25px;"><i class="fas fa-tag"></i></span>
+            </p>
         </div>
 
-        <h4>Book Counter:</h4> <input id="counter">
+        <!-- <h4>Book Counter:</h4> <input id="counter"> -->
 
         
             <script>
-                $(document).ready(function(){
-                    // button click
-                    $("#total-sum").click(function(){
-                        var sum = 0;
-                        $('.item-quantity').each(function(){
-                            var num = $(this).val().replace(',','');
-                            if(num != 0){
-                                sum += parseFloat(num);
-                            }
-                        });
-                        
-                        $('#total_amount').val(sum);
-                    });
-
-
-                });
 
                 var bookcounter = 0
                 var quantity
                 var pricetotal = 0
                 var price = 0
-                var pricevaltot = 0;
+                var bookPrices = 0;
 
-                function getPriceValue(){
-                    var x, i;
-                    x = document.querySelectorAll(".item-quantity");
-                    bookcounter = 0;
+                function getDiscountPrice(){
 
-                    for (i = 0; i < x.length; i++) {
-                        if(x[i].value > 0){
-                            bookcounter = bookcounter + 1
-                        }
-            
+                    // bookcounter = 2
+                    if(bookcounter == 1){
+                        document.getElementById("discountprice").innerHTML = bookPrices + ".00";
                     }
-                    if(bookcounter == 0){
-                        alert("You haven't selected any books!")
-                    }
-                    
-                    document.getElementById("counter").value = bookcounter;
-
-                    // if 2 books selected
-                    if(counter == 2){
-                        var numVal1 = pricevaltot
+                    else if(bookcounter == 2){
+                        var numVal1 = bookPrices
                         var numVal2 = 5 / 100; // 5%
                         var totalValue = numVal1 - (numVal1 * numVal2)
-                        document.getElementById("total-value").value = totalValue.toFixed(2);
+                        document.getElementById("discountprice").innerHTML = totalValue.toFixed(2);
                     }
-
-                }
-
-                function getCompletePrice(){
-                    var numVal1 = pricevaltot
-                    var numVal2 = 5 / 100; // 5%
-                    var totalValue = numVal1 - (numVal1 * numVal2)
-                   // document.getElementById("discountprice").value = "hello";
-                    document.getElementById("totalVal").value = totalValue.toFixed(2);
+                    else if(bookcounter == 3){
+                        var numVal1 = bookPrices
+                        var numVal2 = 10 / 100; // 10%
+                        var totalValue = numVal1 - (numVal1 * numVal2)
+                        document.getElementById("discountprice").innerHTML = totalValue.toFixed(2);
+                    }
+                    else if(bookcounter == 4){
+                        var numVal1 = bookPrices
+                        var numVal2 = 20 / 100; // 10%
+                        var totalValue = numVal1 - (numVal1 * numVal2)
+                        document.getElementById("discountprice").innerHTML = totalValue.toFixed(2);
+                    }
+                    else if(bookcounter == 5){
+                        var numVal1 = bookPrices
+                        var numVal2 = 25 / 100; // 10%
+                        var totalValue = numVal1 - (numVal1 * numVal2)
+                        document.getElementById("discountprice").innerHTML = totalValue.toFixed(2);
+                    }
                 }
             
 
@@ -227,8 +198,10 @@
                     pricetotal = quantity.value * price; // quantity x price
                     node.querySelector(".price-total").innerText = pricetotal // place in total textbox
                     
-                    pricevaltot = pricevaltot + pricetotal
-                    document.getElementById("pricevaltot").innerText = pricevaltot
+                    bookPrices = bookPrices + pricetotal
+                    document.getElementById("bookPrices").innerText = bookPrices
+
+                    bookcounter = bookcounter + 1
 
                     if (quantity.value > 0) {
                         node.querySelector(".remove").removeAttribute("disabled");
@@ -248,13 +221,14 @@
                         node.querySelector(".add").classList.remove("disabled");
                     }
 
-                    pricevaltot = pricevaltot - pricetotal
-                    document.getElementById("pricevaltot").innerText = pricevaltot
+                    bookPrices = bookPrices - pricetotal
+                    document.getElementById("bookPrices").innerText = bookPrices
+
+                    bookcounter = bookcounter - 1
 
                     pricetotal = quantity.value * price; // quantity x price
                     node.querySelector(".price-total").innerText = pricetotal // place in total textbox
                     });
-
                 });
 
 
