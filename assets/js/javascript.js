@@ -24,13 +24,13 @@ function getDiscountPrice(){
     }
     else if(bookcounter == 4){
         var numVal1 = bookPrices
-        var numVal2 = 20 / 100; // 10%
+        var numVal2 = 20 / 100; // 20%
         var totalValue = numVal1 - (numVal1 * numVal2)
         document.getElementById("discountprice").innerHTML = totalValue.toFixed(2);
     }
     else if(bookcounter == 5){
         var numVal1 = bookPrices
-        var numVal2 = 25 / 100; // 10%
+        var numVal2 = 25 / 100; // 25%
         var totalValue = numVal1 - (numVal1 * numVal2)
         document.getElementById("discountprice").innerHTML = totalValue.toFixed(2);
     }
