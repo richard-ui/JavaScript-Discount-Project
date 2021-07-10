@@ -1,131 +1,103 @@
 <!DOCTYPE html>
 <html lang="en"> <!-- English language -->
-    <head> 
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+        <title>Potter Kata | Store</title>
+        <meta name="description" content="This is the description">
+        <link rel="stylesheet" href="assets/css/styles.css" />
 
-        <!-- uses viewport to be responisve on mobile -->
+        <meta charset="UTF-8"> <!--  correctly specifying the encoding using a HTTP header like-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+>
 
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Books Project</title>
 
+        
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <link rel="stylesheet" href="assets/css/style.css" type="text/css">
         <script src="https://kit.fontawesome.com/e9c73d7092.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover-min.css" />
 
 	    <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-</head>
 
-<body>
-<div class="container-fluid">
-        	
-    <h2>Potter Kata</h2>
 
-    <p>Add Books:</p>
-
-        <div class="cart-product">
-            <div class="thumb-desc">
-                <h4>The Sorcerer's Stone</h4>
+        
+    </head>
+    <body>
+        <header class="main-header">
+            <nav class="main-nav nav">
+                <ul>
+                    <li><a href="store.html">STORE</a></li>
+                </ul>
+            </nav>
+            <h1 class="band-name band-name-large">Potter Kata</h1>
+        </header>
+        <section class="container content-section">
+            <h2 class="section-header">Potter Kata</h2>
+            <div class="shop-items">
+                <div class="shop-item">
+                    <span class="shop-item-title">Philosphoers Stone</span>
+                    <img class="shop-item-image" src="assets/images/book1.jpg">
+                    <div class="shop-item-details">
+                        <span class="shop-item-price">£8.00</span>
+                        <button class="btn btn-success shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+                <div class="shop-item">
+                    <span class="shop-item-title">Chamber of Secrets</span>
+                    <img class="shop-item-image" src="https://images-na.ssl-images-amazon.com/images/I/81nA2C3E-wL.jpg">
+                    <div class="shop-item-details">
+                        <span class="shop-item-price">£8.00</span>
+                        <button class="btn btn-success shop-item-button"type="button">ADD TO CART</button>
+                    </div>
+                </div>
+                <div class="shop-item">
+                    <span class="shop-item-title">Prisoner of Askaban</span>
+                    <img class="shop-item-image" src="assets/images/book3.jpg">
+                    <div class="shop-item-details">
+                        <span class="shop-item-price">£8.00</span>
+                        <button class="btn btn-success shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+                <div class="shop-item">
+                    <span class="shop-item-title">Goblet of Fire</span>
+                    <img class="shop-item-image" src="assets/images/book4.jpg">
+                    <div class="shop-item-details">
+                        <span class="shop-item-price">£8.00</span>
+                        <button class="btn btn-success shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+                <div class="shop-item">
+                    <span class="shop-item-title">Order of Phoenix</span>
+                    <img class="shop-item-image" src="assets/images/book5.jpg">
+                    <div class="shop-item-details">
+                        <span class="shop-item-price">£8.00</span>
+                        <button class="btn btn-success shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="product-options">
-            <div class="item-count">
-                <button action="remove" class="remove btn btn-success">-</button>
-                <input type="text" value="0" class="item-quantity">
-                <button action="add" class="add btn btn-success">+</button>
+        </section>
+        
+        <section class="container content-section">
+            <h2 class="section-header">CART</h2>
+            <div class="cart-row">
+                <span class="cart-item cart-header cart-column">ITEM</span>
+                <span class="cart-price cart-header cart-column">PRICE</span>
+                <span class="cart-quantity cart-header cart-column">QUANTITY</span>
             </div>
+            <div class="cart-items">
 
-            <p class="total-price">
-                <span><i class="fas fa-coins"></i></span>
-                £<span id="price" class="price-total">0</span>.00
-            </p>
-        </div>
+                <!-- items go here -->
 
-
-        <div class="cart-product">
-            <div class="thumb-desc">
-                <h4>Chamber Of Secrets</h4>
             </div>
-        </div>
-        <div class="product-options">
-            <div class="item-count">
-                <button action="remove" class="remove btn btn-success">-</button>
-                <input type="text" value="0" class="item-quantity">
-                <button action="add" class="add btn btn-success">+</button>
+            <div class="cart-total">
+                <strong class="cart-total-title">Total:</strong>
+                <span class="cart-total-price">
+                    <span><i class="fas fa-coins"></i></span>£0
+                </span>
             </div>
-
-            <p class="total-price">
-                <span><i class="fas fa-coins"></i></span>
-                £<span id="price" class="price-total">0</span>.00
-            </p>
-        </div>
-
-        <div class="cart-product">
-            <div class="thumb-desc">
-                <h4>Prisoner of Askaban</h4>
-            </div>
-        </div>
-        <div class="product-options">
-            <div class="item-count">
-                <button action="remove" class="remove btn btn-success">-</button>
-                <input type="text" value="0" class="item-quantity">
-                <button action="add" class="add btn btn-success">+</button>
-            </div>
-
-            <p class="total-price">
-                <span><i class="fas fa-coins"></i></span>
-                £<span id="price" class="price-total">0</span>.00
-                
-            </p>
-        </div>
-
-        <div class="cart-product">
-            <div class="thumb-desc">
-                <h4>Goblet Of Fire</h4>
-            </div>
-        </div>
-        <div class="product-options">
-            <div class="item-count">
-                <button action="remove" class="remove btn btn-success">-</button>
-                <input type="text" value="0" class="item-quantity">
-                <button action="add" class="add btn btn-success">+</button>
-            </div>
-
-            <p class="total-price">
-                <span><i class="fas fa-coins"></i></span>
-                £<span id="price" class="price-total">0</span>.00
-                
-            </p>
-        </div>
-
-        <div class="cart-product">
-            <div class="thumb-desc">
-                <h4>Order of the Phoenix</h4>
-            </div>
-        </div>
-        <div class="product-options">
-            <div class="item-count">
-                <button action="remove" class="remove btn btn-success">-</button>
-                <input type="text" value="0" class="item-quantity">
-                <button action="add" class="add btn btn-success">+</button>
-            </div>
-
-            <p class="total-price">
-                <span><i class="fas fa-coins"></i></span>
-                £<span id="price" class="price-total">0</span>.00
-            </p>
-        </div>
-
-        <div style="float: right; margin-right: 15rem;">
-            <h4>Price: </h4>
-            <p style="font-size: 40px;">£<span id="bookPrices" class="bookPrices">0</span>.00
-                <span><i class="fas fa-coins"></i></span>
-            </p>
-            <button onclick="getDiscountPrice()" class="btn btn-info">Get Total</button>
-        </div>
+            <button class="btn btn-primary btn-purchase" type="button">PURCHASE</button>
+        </section>
 
         <div style="float: right; margin-right: 15rem;">
             <h4>Discount Price: </h4>
@@ -134,16 +106,11 @@
             </p>
         </div>
 
-        <!-- <h4>Book Counter:</h4> <input id="counter"> -->
+        <script src="assets/js/store.js"></script>
 
-     </div>
-
-   
-    <script src="assets/js/javascript.js"></script>
-
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
     
-</body>
-
+        
+    </body>
 </html>
