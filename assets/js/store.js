@@ -31,7 +31,17 @@ function ready() {
 // purchase button
 function purchaseClicked() {
     var cartItems = document.getElementsByClassName('cart-items')[0]
-    alert('Thank you for your purchasing' + document.getElementsByClassName('cart-items')[0])
+    var titlenames = []
+
+    var cartItems = document.getElementsByClassName('cart-items')[0] 
+    var cartItemNames = cartItems.getElementsByClassName('cart-item-title')
+    for (var i = 0; i < cartItemNames.length; i++) {
+            //titlenames += cartItemNames[i].innerText
+            titlenames.push(cartItemNames[i].innerText);
+    }
+
+    alert('Thank you for your purchasing ' + titlenames + '.')
+
     while (cartItems.hasChildNodes()) {
         cartItems.removeChild(cartItems.firstChild)
     }

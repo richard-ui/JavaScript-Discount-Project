@@ -13,7 +13,18 @@ For example, how much does this basket of books cost?
 
 2 copies of the first book 2 copies of the second book 2 copies of the third book 1 copy of the fourth book 1 copy of the fifth book answer :
 
+### At First glance it would be expected to be:
+
 (5 * 8) - 25% [first book, second book, third book, fourth book, fifth book]
 
 (3 * 8) - 10% [first book, second book, third book]
 30 + 21.60 = 51.60
+
+### CHEAPER SOLUTION:
+
+(4 * 8) - 20% [first book, second book, third book, fourth book]
++ (4 * 8) - 20% [first book, second book, third book, fifth book]
+= 25.6 * 2
+= 51.20
+
+The 2nd option is the correct and wiser decision to make.
