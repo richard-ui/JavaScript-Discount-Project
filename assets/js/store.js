@@ -30,8 +30,8 @@ function ready() {
 
 // purchase button
 function purchaseClicked() {
-    alert('Thank you for your purchasing' + 'this')
     var cartItems = document.getElementsByClassName('cart-items')[0]
+    alert('Thank you for your purchasing' + document.getElementsByClassName('cart-items')[0])
     while (cartItems.hasChildNodes()) {
         cartItems.removeChild(cartItems.firstChild)
     }
